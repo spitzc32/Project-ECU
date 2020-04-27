@@ -29,7 +29,7 @@ Providing the basic services and the call of opportunity can give people a socia
 
 ## Project Roadmap
 
-![](images/Product Roadmap(Final).png)
+![](images/Product Roadmap(FINAL).png)
 
 ## The Architecture
 
