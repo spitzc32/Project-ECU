@@ -3,13 +3,11 @@ The github repository for Call for Code submission and response intiative for th
 
 # Contents
 1. [Short Description](#Short-Description)
-1. [Demo Video] (#DemoVideo)
-1. [Project Roadmap] (#Project-Roadmap)
-1. [Getting Started] (#Getting-started)
-1. [Live Demo](#LiveDemo)
-1. [API's and Services used] (#APIs-used)
-1. [Contributing](#Contributing)
-1. [Versioning](#Versioning)
+1. [Demo Video](#Demo-Video)
+1. [Project Roadmap](#Project-Roadmap)
+1. [The Architecture](#The-Architecture)
+1. [Live Demo](#Live-Demo)
+1. [API's and Services used](#APIs-used)
 1. [Authors](#Authors)
 
 
@@ -31,7 +29,29 @@ Providing the basic services and the call of opportunity can give people a socia
 
 ## Project Roadmap
 
-![Roadmap]()
+![Roadmap](RoadMap(Final).png)
+
+## The Architecture
+
+1. The user logs in using Google's OAuth Authentication
+2. Their location is connected via places API to other clusters of services offered in the neraby area
+3. The user is guided by Watson AI if he/she is in need of help of accesing a service or if he/she has a question at hand.
+
+## Live Demo
+
+[![Watch the video]()]
+
+## API's used
+
+* [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/)
+* [Firebase Database](https://firebase.google.com/) - No SQL Database used
+* [Facebook API](https://developers.facebook.com/products)- Facebook's Authentication and Messenger services used
+* [Google Places API](https://developers.google.com/places/web-service/intro) - Places' Geolocation API used
+
+## Authors
+* Spitzc32
+* LowKeyProgrammer
+
 
 
 
