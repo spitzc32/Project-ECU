@@ -1,5 +1,6 @@
 ![](images/LOGO.jpg)
-# ProjectComm.Unity
+# Project ECU: Emergency Communication Unity Response for COVID-19
+
 The github repository for Call for Code submission and response intiative for the track COVID-19.
 
 # Contents
