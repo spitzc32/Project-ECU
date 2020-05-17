@@ -1,4 +1,4 @@
-![](images/LOGO.jpg)
+![](images/Logo.jpg)
 # Project ECU: Emergency Communication Unity Response for COVID-19
 
 The github repository for Call for Code submission and response intiative for the track COVID-19.
@@ -37,7 +37,8 @@ Providing the basic services and the call of opportunity can give people a socia
 
 1. The user logs in using Google's OAuth Authentication
 2. Their location is connected via places API to other clusters of services offered in the neraby area
-3. The user is guided by Watson AI if he/she is in need of help of accesing a service or if he/she has a question at hand.
+3. 
+4. The user is guided by Watson AI if he/she is in need of help of accesing a service or if he/she has a question at hand.
 
 ## Live Demo
 
@@ -49,6 +50,7 @@ Providing the basic services and the call of opportunity can give people a socia
 * [Firebase Database](https://firebase.google.com/) - No SQL Database used
 * [Facebook API](https://developers.facebook.com/products)- Facebook's Authentication and Messenger services used
 * [Google Places API](https://developers.google.com/places/web-service/intro) - Places' Geolocation API used
+* [OneSignal API](https://app.onesignal.com/)
 
 ## Authors
 * Spitzc32
