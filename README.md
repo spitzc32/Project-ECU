@@ -9,7 +9,7 @@ The github repository for Call for Code submission and response intiative for th
 1. [Project Roadmap](#Project-Roadmap)
 1. [The Architecture](#The-Architecture)
 1. [Live Demo](#Live-Demo)
-1. [API's and Services used](#APIs-used)
+1. [API's and Services used](#APIs-and-Services-used)
 1. [Authors](#Authors)
 
 
@@ -43,13 +43,16 @@ Providing the basic services and the call of opportunity can give people a virtu
 
 [![Watch the video]()]
 
-## API's used
+## API's and Services used
 
-* [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/)
+* [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/) - Chat bot that guides users in using the app.
 * [Firebase Database](https://firebase.google.com/) - No SQL Database used
 * [Facebook API](https://developers.facebook.com/products)- Facebook's Authentication and Messenger services used
-* [Google Places API](https://developers.google.com/places/web-service/intro) - Places' Geolocation API used
-* [OneSignal API](https://app.onesignal.com/)
+* [Google Places API](https://developers.google.com/places/web-service/intro) - For Nearby Places to assist user in locating emergency portals
+* [OneSignal API](https://app.onesignal.com/) - notifications
+* [Google Directions API](https://developers.google.com/maps/documentation/directions/start) - For Navigation and directions.
+
+
 
 ## Authors
 * Spitzc32
