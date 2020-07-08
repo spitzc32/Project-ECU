@@ -10,7 +10,7 @@ The github repository for Call for Code submission and response intiative for th
 1. [The Architecture](#The-Architecture)
 1. [Live Demo](#Live-Demo)
 1. [API's and Services used](#APIs-and-Services-used)
-1. [Authors](#Authors)
+1. [Authors](#Authors)`
 
 
 ## Short Desciption 
@@ -21,10 +21,10 @@ In reponse of the government to the pandemic, a community quarrantine is issued.
 
 ### How can Technology help?
 
-Local communities can further collaborate in community services and activities through providing the basic services needed to ease up the burden of taking long lines just to buy those necessities whilst giving the community a chance of collaboration to productively finish a volunteer task in a matter of time. In terms of Emergencies, Due to the lack of Public Transportation, we can call for local collaboration as well as inform the nearby authorities and hospitals of what is happening and how they can prepare.
+Local communities can further collaborate in community services and activities through providing the basic services via information sharing and tracking to ease up the burden of impacted local business and volunteer events that could be of help to the community. Collaboration through information and awareness is what we promote, so that those with the will and idea could promote them with ease with this platform.   
 
 ### The Idea
-Providing the basic services and the call of opportunity can give people a virtual interaction they need to help in the times of crisis such as the COVID-19 pandemic. Users can assess situations and track ongoing events that needs a local level of cooperation on a live feed in order to fully track the situation at hand.
+Providing the basic services via information sharing and tracking alongside with the call of opportunity can give people a virtual interaction they need to help in the times of crisis such as the COVID-19 pandemic. Users can assess situations and track ongoing events that needs a local level of cooperation on a live feed in order to fully track the situation at hand.
 
 ## Demo Video
 [![Watch the video]()]
