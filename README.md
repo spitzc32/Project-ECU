@@ -5,7 +5,7 @@ The github repository for Call for Code submission and response intiative for th
 
 # Contents
 1. [Short Description](#Short-Description)
-1. [Demo Video](#Demo-Video)
+1. [Explanation Video](#Explanation-Video)
 1. [Project Roadmap](#Project-Roadmap)
 1. [The Architecture](#The-Architecture)
 1. [Live Demo](#Live-Demo)
@@ -28,7 +28,7 @@ To do so,a platform for local communities to further collaborate in community se
 ### The Idea
 Providing the basic services via information sharing and tracking alongside with the call of opportunity can give people a virtual interaction they need to help in the times of crisis such as the COVID-19 pandemic. Users can assess situations and track ongoing events that needs a local level of cooperation on a live feed in order to fully track the situation at hand.
 
-## Demo Video
+## Explanation Video 
 [![Watch the video]()]
 
 ## Project Roadmap
