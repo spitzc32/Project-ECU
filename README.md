@@ -53,6 +53,7 @@ Providing the basic services via information sharing and tracking alongside with
 * [Google Places API](https://developers.google.com/places/web-service/intro) - For Nearby Places to assist user in locating emergency portals
 * [OneSignal API](https://app.onesignal.com/) - notifications
 * [Google Directions API](https://developers.google.com/maps/documentation/directions/start) - For Navigation and directions.
+* [QR Code API](http://goqr.me/) - For contact tracing QR codes.
 
 
 
