@@ -52,30 +52,29 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 What things you need to install the software and how to install them
 
-For the Web Application:
+For the Web Application we use Flask as our  micro web framework.
 ```flask
 pip install flask
 ```
-For the Database Used:
+For the Database, we use Firebase Database.
 ```firebase_admin
 pip install firebase_admin
-```
-```pyrebase
+
 pip install pyrebase
 ```
 
-For Push Notifications:
+For Push Notifications, we use Onesignal. the SDK and other credentials needed for the API are present. 
 ```onesignal
 pip install onesignal
 ```
 
-For Geolocation:
+For the Computation of the Distance and to get the location of the Admin, we use Geocoder and Geopy.
 ```geocoder
 pip install geocoder
-```
-```geopy
+
 pip install geopy
 ```
+
 
 
 
