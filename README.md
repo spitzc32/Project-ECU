@@ -8,6 +8,8 @@ The github repository for Call for Code submission and response intiative for th
 1. [Explanation Video](#Explanation-Video)
 1. [Project Roadmap](#Project-Roadmap)
 1. [The Architecture](#The-Architecture)
+1. [Long Description](#Long-Description)
+1. [Getting Started](#Getting-Started)
 1. [Live Demo](#Live-Demo)
 1. [API's and Services used](#APIs-and-Services-used)
 1. [Authors](#Authors)`
@@ -40,6 +42,43 @@ Providing the basic services via information sharing and tracking alongside with
 2. Their location is connected via places API to other clusters of services offered in the neraby area
 3. 
 4. The user is guided by Watson AI if he/she is in need of help of accesing a service or if he/she has a question at hand.
+
+## Long Description
+You can see more of our project details [here](Description.md)
+
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+What things you need to install the software and how to install them
+
+For the Web Application:
+```flask
+pip install flask
+```
+For the Database Used:
+```firebase_admin
+pip install firebase_admin
+```
+```pyrebase
+pip install pyrebase
+```
+
+For Push Notifications:
+```onesignal
+pip install onesignal
+```
+
+For Geolocation:
+```geocoder
+pip install geocoder
+```
+```geopy
+pip install geopy
+```
+
+
+
 
 ## Live Demo
 
