@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}Add Delivery Service{% endblock %}
+{% block content %}
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-file-text-o"></i> Create Delivery Service</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{{url_for('index')}}">Home</a></li>
+              <li><i class="icon_document_alt"></i>Forms</li>
+              <li><i class="fa fa-file-text-o"></i>Create Delivery Service</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Create Service
+              </header>
+              <div class="panel-body">
+                <form class="form-horizontal " method="POST">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Name of Service</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="ServiceName"  placeholder="Add text">
+                      <span class="help-block">e.g. Name of Company, Your app service</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Organization:</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="Organization" placeholder="Add text">
+                      <span class="help-block">e.g. Name of your organization</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Roles and Responsibilities </label>
+                    <div class="col-sm-10">
+                      <textarea class="form-control ckeditor" name="RAR" rows="6"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">Link</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="Link"  placeholder="Add text">
+                      <span class="help-block">e.g. Link to your app or website</span>
+                    </div>
+                  </div>  
+                  <div class="form-group">
+                    <label class="control-label col-sm-2"> Date of Expected Service</label>
+                    <div class="col-sm-10">
+                      <div class="input-prepend">
+                        <input id="dateS" type="text" name="RangeDate" class=" form-control" />
+                        <span class="help-block">e.g. MM/dd/2YYY-MM/dd/2YYY</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2"> Contact Number</label>
+                    <div class="col-sm-10">
+                      <div class="input-prepend">
+                           <input type="text"name="tagsinput" id="tagsinput" class="form-control" />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                </form>
+              </div>
+            </section>
+            <!-- End Of Events Section-->
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+    <div class="text-right">
+      <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+   <!-- custom form validation script for this page-->
+  <script src="{{url_for('static', filename='js/form-component.js')}}"></script>  
+  {% endblock  %}
+  <!-- container section end -->
+  
+
+

@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}Volunteers and Events{% endblock %}
+{% block content %}
+<!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-map-marker"></i> Maps</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{{url_for('index')}}">Home</a></li>
+              <li><i class="fa fa-map-marker"></i>Maps</li>
+              <li><i class="fa fa-th-list"></i>Events and Volunteers</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+           <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Volunteers and Events
+              </header>
+              <div class="panel panel-default">
+                <div class="panel-body-map" style="height: 700px;">
+                  <div id="map" style="height: 100%; width: 100%;">
+                    
+                  </div>
+                </div>
+
+              </div>
+                  
+            </section>
+          </div>
+        </div>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmNJv37NI7JcSVX85sPJb5B0uav92fXFQ&callback=initMap&libraries=&v=weekly"
+            defer
+        ></script>
+         <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script>
+        <script>
+      var map;
+      var firebaseConfig = {
+        'apiKey': "AIzaSyB7ylmP4PvAByYA8--VbMSFonWvPa9ly_Q",
+        'authDomain': "community-87c7d.firebaseapp.com",
+        'databaseURL': "https://community-87c7d.firebaseio.com",
+        'projectId': "community-87c7d",
+        'storageBucket': "community-87c7d.appspot.com",
+        'messagingSenderId': "978165544305",
+        'appId': "1:978165544305:web:02736cf97efb7fb74632d0",
+        'measurementId': "G-6PE507NV6F"
+      }
+      firebase.initializeApp(firebaseConfig);
+
+      //------------------for Volunteers Section------------------- 
+      var locationsRef = firebase.database().ref("Volunteer");
+      
+
+      locationsRef.on('value', function(snapshot) {
+        //Retrieving Object Start
+        snapshot.forEach(function(childSnapshot){
+          //forEach Start
+          var data = childSnapshot.val();
+          var latlng = new google.maps.LatLng(data.Latitude,data.Longitude );
+          
+
+          var marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+          });
+
+          markers.push(marker);
+          //marker end
+        
+        });
+        // forEach end
+      });
+      //locref end
+      
+      //------------------for Volunteers Section------------------- 
+      var eventsRef = firebase.database().ref("Locations");
+      
+
+      eventsRef.on('value', function(snapshot) {
+        //Retrieving Object Start
+        
+        snapshot.forEach(function(childSnapshot){
+          //forEach Start
+          var data = childSnapshot.val();
+          var latlng = new google.maps.LatLng(data.Latitude,data.Longitude );
+          
+
+          
+          var contents = "<b>"+ "Event" +"</b><br>";
+          contents += "Description: "+ data.Description + "<br>Qualifications: " + data.Qualifications + "<br>Range Date: " + data.RangeDate
+
+          var wwindow = new google.maps.InfoWindow({
+            content:contents});
+
+          var marker = new google.maps.Marker({
+            position: latlng,
+            map: map
+          });
+
+
+          marker.addListener('click', function() {
+            wwindow.open(map, marker);
+          });
+
+          markers.push(marker);
+          //marker end
+        
+        });
+        // forEach end
+      });
+      //locref end
+      
+      
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { 
+            lat: 14.6528,
+            lng: 120.9837 },
+          zoom: 8,
+          styles: [{"featureType":"all","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"administrative.country","elementType":"labels.text.fill","stylers":[{"color":"#e5c163"}]},{"featureType":"administrative.locality","elementType":"labels.text.fill","stylers":[{"color":"#c4c4c4"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"color":"#e5c163"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21},{"visibility":"on"}]},{"featureType":"poi.business","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#e5c163"},{"lightness":"0"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"color":"#e5c163"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#575757"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.stroke","stylers":[{"color":"#2c2c2c"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#999999"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]
+        });
+
+      // end of initMap
+      }
+
+     
+    </script>
+   
+
+        <!-- page end-->
+      </section>
+    </section>
+     <!--main content end-->
+
+{% endblock %}

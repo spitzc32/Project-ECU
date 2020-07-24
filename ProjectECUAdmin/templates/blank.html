@@ -1,0 +1,146 @@
+<!-- 
+  created by:   spitzc32
+                LowkeyProgrammer
+
+  Dependencies: Database Usage: firebase_admin
+                                pyrebase
+                Notifications:  onesignal
+                Geolocation:    geocoder
+                                goepy
+                Website:        flask
+  
+  API's used:   Onesignal (https://documentation.onesignal.com/docs)
+                GoQR    (http://goqr.me/api/)
+                Google Maps Javascript API  (https://developers.google.com/maps/documentation/javascript/overview?utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_term=KW_%2Bmaps+%2Bjavascript+%2Bapi-ST_%2Bmaps+%2Bjavascript+%2Bapi&gclid=Cj0KCQjwpNr4BRDYARIsAADIx9xMmu8a7d4cbVCNi5zsnymDvffv9cqynxmEhySNYfr4cwLOT88ZbuoaApxGEALw_wcB&utm_content=text-ad-none-none-DEV_c-CRE_434204568468-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+%7E+Brand+%7C+BMM+%7C+Google+Maps+Javascript+API-KWID_43700053580897263-kwd-341556983684-userloc_9066820&utm_source=google&utm_medium=cpc)
+
+  Web Application Emergency Requests: Usage
+    - Used to display requests that needs admins approval 
+      in order for the admin to take action with the 
+      services and volunteers needed to be dispatched. 
+-->
+{% extends "base.html" %}
+{% block title %}Emergency Requests{% endblock %}
+{% block content %}
+<!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-table"></i> Table</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{{url_for('index')}}">Home</a></li>
+              <li><i class="fa fa-table"></i>Table</li>
+              <li><i class="fa fa-th-list"></i>Request</li>
+            </ol>
+          </div>
+        </div>
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Emergency Request
+              </header>
+
+              <table class="table table-striped table-advance table-hover">
+                <tbody>
+                  <tr>
+                    <th><i class="icon_profile"></i> User</th>
+                    <th><i class="icon_tools"></i> Responded</th>
+                    <th><i class="icon_mail_alt"></i> Request</th>
+                    <th><i class="icon_mobile"></i> Mobile</th>
+                    <th><i class="icon_cogs"></i> Action</th>
+                  </tr>
+                  <form method="POST">
+                  <input type="hidden" id="user" name="user">
+                  <input type="hidden" id="Contact" name="Contact">
+                  <input type="hidden" id="Description" name="Description">
+                    {% if req %}
+                      {% for i in req.keys() %}
+                       <tr>
+
+                        
+
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Level Of Urgency</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="form-group">
+                                <label for="sel1">Select list:</label>
+                                <select class="form-control" id="sel1" name="Urgency">
+                                  <option value="Mild">Mild</option>
+                                  <option value="Medium">Medium</option>
+                                  <option value="Urgent">Urgent</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                               <input type="submit" name="btn" value="Accept" class="btn btn-success">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  <!-- Modal for Notification End -->
+                        <td class="nr"><span>{{i}}</span></td>
+                        
+                        <td>{{ req[i]['Response'] }}</td>
+                       
+                        <td class="ndes">{{ req[i]['Description'] }}</td>
+                        <td class="nres">{{ req[i]['Contact'] }}</td>
+                        <td>
+                          <div class="btn-group">
+                            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success" onclick="document.getElementById('user').value = $(this).closest('tr').find('.nr').text();document.getElementById('Contact').value = $(this).closest('tr').find('.nres').text();
+                              document.getElementById('Description').value = $(this).closest('tr').find('.ndes').text();">Accept</button> 
+                           
+                            <input type="submit" name="btn" value="Deny" class="btn btn-danger" onclick="document.getElementById('user').value = $(this).closest('tr').find('.nr').text();">
+                          </div>
+                        </td>
+                     </form> 
+                      </tr>
+
+                      {% endfor %}
+                    {% endif %}
+
+                    
+                  
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> 
+    <script type="text/javascript">
+      function getTD(){
+         alert(this.cells[0].innerText);
+         
+      }
+
+    </script>
+    <!--main content end-->
+    <div class="text-right">
+      <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+
+{% endblock %}

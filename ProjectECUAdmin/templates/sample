@@ -1,0 +1,277 @@
+{
+   "geocoded_waypoints" : [
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJBZLgpaq3lzMRadYlLNe8mLw",
+         "types" : [ "street_address" ]
+      },
+      {
+         "geocoder_status" : "OK",
+         "place_id" : "ChIJ21KN4UbIlzMRythjiS_oFMc",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "routes" : [
+      {
+         "bounds" : {
+            "northeast" : {
+               "lat" : 14.6470089,
+               "lng" : 121.0596328
+            },
+            "southwest" : {
+               "lat" : 14.577395,
+               "lng" : 121.0341532
+            }
+         },
+         "copyrights" : "Map data ©2020",
+         "legs" : [
+            {
+               "distance" : {
+                  "text" : "9.5 km",
+                  "value" : 9456
+               },
+               "duration" : {
+                  "text" : "20 mins",
+                  "value" : 1195
+               },
+               "end_address" : "72 L. Esteban, Maynila, Kalakhang Maynila, Philippines",
+               "end_location" : {
+                  "lat" : 14.577395,
+                  "lng" : 121.0489407
+               },
+               "start_address" : "16 Masaya, Lungsod Quezon, Kalakhang Maynila, Philippines",
+               "start_location" : {
+                  "lat" : 14.6441015,
+                  "lng" : 121.0341532
+               },
+               "steps" : [
+                  {
+                     "distance" : {
+                        "text" : "45 m",
+                        "value" : 45
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 12
+                     },
+                     "end_location" : {
+                        "lat" : 14.643765,
+                        "lng" : 121.0343784
+                     },
+                     "html_instructions" : "Head \u003cb\u003esoutheast\u003c/b\u003e on \u003cb\u003eMasaya\u003c/b\u003e toward \u003cb\u003eTimes\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eRestricted usage road\u003c/div\u003e",
+                     "polyline" : {
+                        "points" : "sdkxAmnvaVbAm@"
+                     },
+                     "start_location" : {
+                        "lat" : 14.6441015,
+                        "lng" : 121.0341532
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 186
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 55
+                     },
+                     "end_location" : {
+                        "lat" : 14.6446654,
+                        "lng" : 121.0358382
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eTimes\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eRestricted usage road\u003c/div\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "obkxA{ovaVy@wAoAaCEIe@_A"
+                     },
+                     "start_location" : {
+                        "lat" : 14.643765,
+                        "lng" : 121.0343784
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 235
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 39
+                     },
+                     "end_location" : {
+                        "lat" : 14.6464448,
+                        "lng" : 121.0346613
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eBayanihan\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eRestricted usage road\u003c/div\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "ehkxA_yvaVyBrAkBdA{BpA"
+                     },
+                     "start_location" : {
+                        "lat" : 14.6446654,
+                        "lng" : 121.0358382
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.1 km",
+                        "value" : 117
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 25
+                     },
+                     "end_location" : {
+                        "lat" : 14.6470089,
+                        "lng" : 121.0355816
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eT Benitez\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eRestricted usage road\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "gskxAsqvaVqBwD"
+                     },
+                     "start_location" : {
+                        "lat" : 14.6464448,
+                        "lng" : 121.0346613
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "7.7 km",
+                        "value" : 7656
+                     },
+                     "duration" : {
+                        "text" : "13 mins",
+                        "value" : 779
+                     },
+                     "end_location" : {
+                        "lat" : 14.58437,
+                        "lng" : 121.0554166
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eEpifanio de los Santos Ave\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003ePan-Philippine Hwy\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eAH26\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eC-4\u003c/b\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "yvkxAkwvaVl@[jC{A\\SvCcBRMDC@ATMPKzAy@t@c@v@e@j@[j@]TM@A@?XQVM\\S\\Q^S\\S\\Q^S\\S^Q\\SlDqBJGl@]\\S^S\\S\\S\\QNKrIyEdAq@^Q\\SVMxBoA^S\\Q^S\\Q\\S^S\\Q^S\\QXQzAcAx@k@z@i@JGZS@?^S\\S^Qb@WXOBCBAXOJGPITKHC^O`@M^OPIbC}@LE`@M^MLEXIf@QPG`@O^M`@OTIHC^O`@O^M`@ODA`@M^M`@M`@M`@M^M^O`@O^O^O@An@W`@O~@_@^O`DqAfEuArBs@`A]^O\\MbA_@^O`Bm@`A]x@[z@]DA`@ORI@?^O`@M^O^O`@O^M^O@?^O^O^M`@O^OB?^O`@M`@M^M`@M`@M^M`@M^M`@MLERI~@_@n@Wp@WNGLEbAc@lAa@^O`A]~Ai@p@Sr@Wx@[`A_@nAe@tBs@ZMXM^M`@O^M`@O@A\\M^M`@O^ODA^M`@MHCjAa@DA^O`@M\\K@A`@M`@M^Mt@W^M`@MdFkBrFiBvCcAfDkAjAc@^O`DkAfAa@f@Qt@Wx@WZKRGz@UPEJC`@Ip@Qr@KJC`@G@?ZED?b@EFAZCJATCPAPAb@CJ?VAb@CB?\\?h@@@?t@Az@AxB?fAHjAD|AVVFb@J`@H`@J`@H`@J\\FdBb@fCl@f@L\\Hv@Pz@RJBH@THRFdARpAXt@Tf@L`ATv@PbI`B`@J`@J`@J`@J`@J`@J`@J`@J`@J\\J\\J`@JbB^tGxAd@LjCn@XHLB"
+                     },
+                     "start_location" : {
+                        "lat" : 14.6470089,
+                        "lng" : 121.0355816
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.8 km",
+                        "value" : 765
+                     },
+                     "duration" : {
+                        "text" : "3 mins",
+                        "value" : 172
+                     },
+                     "end_location" : {
+                        "lat" : 14.5786068,
+                        "lng" : 121.0515545
+                     },
+                     "html_instructions" : "Slight \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eEpifanio de los Santos Ave\u003c/b\u003e/\u003cwbr/\u003e\u003cb\u003eC-4\u003c/b\u003e",
+                     "maneuver" : "turn-slight-right",
+                     "polyline" : {
+                        "points" : "io_xAkszaVRNNFNH~@\\`@RRHx@^NHf@VVNtBrAx@f@|AdAPJPJrCbBdAt@FBLH`CzAtBrAp@b@"
+                     },
+                     "start_location" : {
+                        "lat" : 14.58437,
+                        "lng" : 121.0554166
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 221
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 61
+                     },
+                     "end_location" : {
+                        "lat" : 14.5790889,
+                        "lng" : 121.0496079
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eright\u003c/b\u003e onto \u003cb\u003eDomingo M. Guevara\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003ePass by ATM - Bank of the Philippine Islands (on the right)\u003c/div\u003e",
+                     "maneuver" : "turn-right",
+                     "polyline" : {
+                        "points" : "ik~wAe{yaVu@tAELEREv@UbEAN"
+                     },
+                     "start_location" : {
+                        "lat" : 14.5786068,
+                        "lng" : 121.0515545
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "0.2 km",
+                        "value" : 199
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 44
+                     },
+                     "end_location" : {
+                        "lat" : 14.577577,
+                        "lng" : 121.0487112
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e at the 2nd cross street onto \u003cb\u003eCalbayog St\u003c/b\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "in~wAaoyaVjANh@Nj@Vp@b@^\\\\ZZ\\"
+                     },
+                     "start_location" : {
+                        "lat" : 14.5790889,
+                        "lng" : 121.0496079
+                     },
+                     "travel_mode" : "DRIVING"
+                  },
+                  {
+                     "distance" : {
+                        "text" : "32 m",
+                        "value" : 32
+                     },
+                     "duration" : {
+                        "text" : "1 min",
+                        "value" : 8
+                     },
+                     "end_location" : {
+                        "lat" : 14.577395,
+                        "lng" : 121.0489407
+                     },
+                     "html_instructions" : "Turn \u003cb\u003eleft\u003c/b\u003e at the 1st cross street onto \u003cb\u003eL. Esteban\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+                     "maneuver" : "turn-left",
+                     "polyline" : {
+                        "points" : "{d~wAmiyaVZ_@HM"
+                     },
+                     "start_location" : {
+                        "lat" : 14.577577,
+                        "lng" : 121.0487112
+                     },
+                     "travel_mode" : "DRIVING"
+                  }
+               ],
+               "traffic_speed_entry" : [],
+               "via_waypoint" : []
+            }
+         ],
+         "overview_polyline" : {
+            "points" : "sdkxAmnvaVbAm@y@wAuAkCe@_AyBrAgFvCqBwDl@[hDoBpDuB~G{DvBmAtFyC~J{FfMiHnEcCvFyCv@c@tCoBdBeAbDgBlAm@jBq@bDmAhBk@|EeBnFgBbC{@pBy@bHqC|JgDzLsE~DyAdFkBjFeBbCw@pCgArCiAnGyBdBk@zB{@dEyAt@[bC{@`Bm@bFeBzFkBfGyBjKmDtLkE~EcB|Bo@rCk@n@K|CYxAGf@CfA@lFCrCNtB^hCj@lHdBxD|@~@VvCl@|Ab@~MtCnG~A`EbA`N`D`Ad@nDzAdEdCzDdCrCbBdAt@TLvFnDp@b@u@tAK`@[zFANjANh@Nj@VpA`Ax@x@d@m@"
+         },
+         "summary" : "Epifanio de los Santos Ave/C-4",
+         "warnings" : [],
+         "waypoint_order" : []
+      }
+   ],
+   "status" : "OK"
+}

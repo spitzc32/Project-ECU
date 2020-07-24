@@ -1,0 +1,350 @@
+<!-- 
+  created by:   spitzc32
+                LowkeyProgrammer
+
+  Dependencies: Database Usage: firebase_admin
+                                pyrebase
+                Notifications:  onesignal
+                Geolocation:    geocoder
+                                goepy
+                Website:        flask
+  
+  API's used:   Onesignal (https://documentation.onesignal.com/docs)
+                GoQR    (http://goqr.me/api/)
+                Google Maps Javascript API  (https://developers.google.com/maps/documentation/javascript/overview?utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_term=KW_%2Bmaps+%2Bjavascript+%2Bapi-ST_%2Bmaps+%2Bjavascript+%2Bapi&gclid=Cj0KCQjwpNr4BRDYARIsAADIx9xMmu8a7d4cbVCNi5zsnymDvffv9cqynxmEhySNYfr4cwLOT88ZbuoaApxGEALw_wcB&utm_content=text-ad-none-none-DEV_c-CRE_434204568468-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+%7E+Brand+%7C+BMM+%7C+Google+Maps+Javascript+API-KWID_43700053580897263-kwd-341556983684-userloc_9066820&utm_source=google&utm_medium=cpc)
+
+  Web Application Dashboard: Usage
+    - When a user requests for medicine in urgency, or
+      something in need urgently, this dashboard will 
+      provide our admin the access to help the individual 
+      in need to cater their needs.   
+-->
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!--overview start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{{ url_for('index') }}">Home</a></li>
+              <li><i class="fa fa-laptop"></i>Dashboard</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" onclick="location.href='{{ url_for('eRequest') }}' ">
+            <div class="info-box red-bg">
+              <i class="fa fa-envelope-o"></i>
+              <div class="count">Request</div>
+              <div class="title">for Medicine</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" onclick="location.href='{{ url_for('availableDelivery') }}' ">
+            <div class="info-box yellow-bg">
+              <i class="fa fa-truck"></i>
+              <div class="count">Delivery</div>
+              <div class="title">Services Available</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" onclick="location.href='{{ url_for('Volunteer') }}' ">
+            <div class="info-box green-bg">
+              <i class="fa fa-calendar"></i>
+              <div class="count">Events</div>
+              <div class="title">for Projects</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"  onclick="location.href='{{ url_for('feeds') }}' ">
+            <div class="info-box blue-bg">
+              <i class="fa fa-cubes"></i>
+              <div class="count">Feeds</div>
+              <div class="title">Community</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+        </div>
+        <!--/.row-->
+       
+        <!-- Map Start -->
+        <div class="row">
+          <div class="col-lg-9 col-lg-12">
+
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <h2><i class="fa fa-map-marker red"></i><strong>Emergency Requests</strong></h2>
+                <div class="panel-actions">
+                  
+                  <button type="button" data-toggle="modal" data-target="#myModal"class="btn btn-info"><i class="fa fa-bell"></i></button> 
+                  
+                  <!-- Modal for Notification Start -->
+                  <form method="POST">
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">New Update</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          
+                            <div class="form-group">
+                              <label>Notification Title:</label>
+                              
+                              <input type="text" class="form-control" placeholder="Title" name="title">
+                            </div>
+                            <div class="form-group">
+                              <label>Message:</label>
+                              <textarea class="form-control" name="message"></textarea>
+                            </div>
+                          
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Update Notification</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 </form> 
+                  <!-- Modal for Notification End -->
+                </div>
+              </div>
+              <div class="panel-body-map" style="height: 500px;">
+                <div id="map" style="height: 100%; width: 100%;">  
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        <!-- Map end -->
+
+      
+        </div><br><br>
+
+        
+
+      </section>
+     </section>
+      <div class="text-right">
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+   
+ 
+  
+  
+    <!-- custom script for this page-->
+    <script src="{{url_for('static', filename='js/sparkline-chart.js')}}"></script>
+    <script src="{{url_for('static', filename='js/easy-pie-chart.js')}}"></script>
+    <script src="{{url_for('static', filename='js/xcharts.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.autosize.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.placeholder.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/gdp-data.js')}}"></script>
+    <script src="{{url_for('static', filename='js/morris.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sparklines.js')}}"></script>
+    <script src="{{url_for('static', filename='js/charts.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.slimscroll.min.js')}}"></script>
+    <script>
+      //knob
+      $(function() {
+        $(".knob").knob({
+          'draw': function() {
+            $(this.i).val(this.cv + '%')
+          }
+        })
+      });
+
+      //carousel
+      $(document).ready(function() {
+        $("#owl-slider").owlCarousel({
+          navigation: true,
+          slideSpeed: 300,
+          paginationSpeed: 400,
+          singleItem: true
+
+        });
+      });
+
+      //custom select box
+
+      $(function() {
+        $('select.styled').customSelect();
+      });
+
+      
+    </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmNJv37NI7JcSVX85sPJb5B0uav92fXFQ&callback=initMap&libraries=drawing"
+        defer
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> 
+    <!--d3 -->
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+
+    <script>
+      //calling modal
+      $('#myModal').modal('show')
+      // map starts
+      var map;
+      var infoWindow;
+      var vertex = [];
+      var listOfPolygons = [];
+
+      var firebaseConfig = {
+        'apiKey': "AIzaSyB7ylmP4PvAByYA8--VbMSFonWvPa9ly_Q",
+        'authDomain': "community-87c7d.firebaseapp.com",
+        'databaseURL': "https://community-87c7d.firebaseio.com",
+        'projectId': "community-87c7d",
+        'storageBucket': "community-87c7d.appspot.com",
+        'messagingSenderId': "978165544305",
+        'appId': "1:978165544305:web:02736cf97efb7fb74632d0",
+        'measurementId': "G-6PE507NV6F"
+      }
+      firebase.initializeApp(firebaseConfig);
+
+      //---------------for Volunteers Section---------------
+      var eventsRef = firebase.database().ref("EmergencyRequest");
+      
+      function labelForMarker(data){
+        return ((data == "Urgent") ? 'red-dot.png': (data == "Medium") ? 'blue-dot.png' : 'yellow-dot.png')
+      }
+
+      eventsRef.on('value', function(snapshot) {
+        //Retrieving Object Start
+        snapshot.forEach(function(childSnapshot){
+          //forEach Start
+          var data = childSnapshot.val(); 
+          var latlng = new google.maps.LatLng(parseFloat(data.Latitude.replace('\"', '')),parseFloat( data.Longitude.replace('\"', ''))); 
+          var contents = "<b>"+ data.Title +"</b><br>";
+          contents += "Description: "+ data.Description + "<br>Contact: " + 
+          data.Contact + "<br>Responded: " + data.Response
+
+          var wwindow = new google.maps.InfoWindow({
+            content:contents});
+
+          var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            icon:{ url: "http://maps.google.com/mapfiles/ms/icons/" + labelForMarker(data.Urgency)}
+          });
+
+          n
+
+          markers.push(marker);
+          //marker end
+
+          
+         
+        });
+        // forEach end
+      });
+      //locref end
+
+      //-----------------Initialize Map--------------------
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: {
+            lat: {{ lat }},
+            lng: {{ lng }}
+          },
+          styles: [{"featureType":"all","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"administrative.country","elementType":"labels.text.fill","stylers":[{"color":"#e5c163"}]},{"featureType":"administrative.locality","elementType":"labels.text.fill","stylers":[{"color":"#c4c4c4"}]},{"featureType":"administrative.neighborhood","elementType":"labels.text.fill","stylers":[{"color":"#e5c163"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21},{"visibility":"on"}]},{"featureType":"poi.business","elementType":"geometry","stylers":[{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#e5c163"},{"lightness":"0"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"labels.text.stroke","stylers":[{"color":"#e5c163"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#575757"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"labels.text.stroke","stylers":[{"color":"#2c2c2c"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#999999"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}],
+          mapTypeId: 'terrain'
+        });
+
+        //Drawing tool
+        var drawingManager = new google.maps.drawing.DrawingManager({
+          drawingControl: true,
+          drawingControlOptions: {
+            position: google.maps.ControlPosition.TOP_CENTER,
+            drawingModes: ['circle', 'polygon', 'polyline', 'rectangle']
+          },
+          circleOptions: {
+            fillColor: '#ffff00',
+            fillOpacity: 1,
+            strokeWeight: 5,
+            clickable: false,
+            editable: true,
+            zIndex: 1
+          }
+        });
+        drawingManager.setMap(map);
+
+        google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+          if (event.type == 'polygon') {
+            console.log("Polygon Completed");
+            // hide polygon from DrawingManager
+            event.overlay.setMap(null);
+            listOfPolygons.push(new google.maps.Polygon({
+              paths: event.overlay.getPath().getArray(),
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 3,
+              fillColor: '#FF0000',
+              fillOpacity: 0.35
+            }));
+            listOfPolygons[listOfPolygons.length - 1].setMap(map);
+            listOfPolygons[listOfPolygons.length - 1].addListener('click', showArrays);
+            console.log(listOfPolygons.length);
+
+          }
+        });
+        infoWindow = new google.maps.InfoWindow();
+
+      
+      }
+
+      /** @this {google.maps.Polygon} */
+      function showArrays(event) {
+        // Since this polygon has only one path, we can call getPath() to return the
+        // MVCArray of LatLngs.
+        var vertices = this.getPath();
+        var vertex = []
+        var contentString = '<b>Polygon</b><br>' +
+          'Clicked location: <br>' + event.latLng.lat() + ',' + event.latLng.lng() +
+          '<br>';
+
+        // Iterate over the vertices.
+        for (var i = 0; i < vertices.getLength(); i++) {
+          var xy = vertices.getAt(i);
+          vertex.push([xy.lat,xy.lng])
+          contentString += '<br>' + 'Coordinate ' + i + ':<br>' + xy.lat() + ',' +
+            xy.lng();
+        }
+        $.post("/", vertex);
+        // Replace the info window's content and position.
+        infoWindow.setContent(contentString);
+        infoWindow.setPosition(event.latLng);
+
+        infoWindow.open(map);
+      }
+    </script>
+{% endblock %}
