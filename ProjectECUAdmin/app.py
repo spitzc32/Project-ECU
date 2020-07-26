@@ -122,10 +122,10 @@ def pushnotif():
 		#store in firebase the update
 		rr = ref.child('Approved').child(identity)
 		rr.update({
-				datetime.now:{
+				'D'+str(datetime.now()).format("MM-dd-yyyy"):{
 						"Title": title,
 						"Content": message,
-						"Timestamp": datetime.now
+						"Timestamp": str(datetime.now()).format("MM-dd-yyyy hh:mm:ss")
 						}
 					
 			})
@@ -428,9 +428,9 @@ def createEventPOST():
 			eventName : 
 				{
 				'EventHost': eventHost,
-				'Description': Description,
-				'Qualifications': Qualifications,
-				'RangeDate': RangeDate,
+				'Description': f"\"{Description}\"",
+				'Qualifications': f"\"{Qualifications}\"",
+				'RangeDate': f"\"{RangeDate}\"",
 				'Latitude': Latitude,
 				'Longitude': Longitude
 				}
