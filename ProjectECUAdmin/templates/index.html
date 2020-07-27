@@ -90,8 +90,7 @@
                 <h2><i class="fa fa-map-marker red"></i><strong>Emergency Requests</strong></h2>
                 <div class="panel-actions">
                   
-                  <button type="button" data-toggle="modal" data-target="#myModal"class="btn btn-info"><i class="fa fa-bell"></i></button> 
-                  
+                
                   <!-- Modal for Notification Start -->
                   <form method="POST">
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -104,21 +103,25 @@
                           </button>
                         </div>
                         <div class="modal-body">
+
+                            <div class="form-group">
+                              <label for="userID" class="col-form-label">UserID:</label>
+                              <input type="text" class="form-control" name="userID" id="userID">
+                            </div>
                           
-                            <div class="form-group">
-                              <label>Notification Title:</label>
-                              
-                              <input type="text" class="form-control" placeholder="Title" name="title">
-                            </div>
-                            <div class="form-group">
-                              <label>Message:</label>
-                              <textarea class="form-control" name="message"></textarea>
-                            </div>
+                          <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name" name="title">
+                          </div>
+                          <div class="form-group">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text" name="message"></textarea>
+                          </div>
                           
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-primary">Update Notification</button>
+                          <input type="submit" class="btn btn-primary" value="Update Notification">
                         </div>
                       </div>
                     </div>
@@ -209,12 +212,17 @@
     <!--d3 -->
     <script src='https://d3js.org/d3.v4.min.js'></script>
 
+    <script >
+       $('#myModal').modal('show')
+    </script>
     <script>
-      //calling modal
-      $('#myModal').modal('show')
+     
+     
       // map starts
       var map;
       var infoWindow;
+      var markers = [];
+      var keys = [];
       var vertex = [];
       var listOfPolygons = [];
 
@@ -236,37 +244,53 @@
       function labelForMarker(data){
         return ((data == "Urgent") ? 'red-dot.png': (data == "Medium") ? 'blue-dot.png' : 'yellow-dot.png')
       }
-
+      var count = 0;
       eventsRef.on('value', function(snapshot) {
         //Retrieving Object Start
+
         snapshot.forEach(function(childSnapshot){
           //forEach Start
+
           var data = childSnapshot.val(); 
-          var latlng = new google.maps.LatLng(parseFloat(data.Latitude.replace('\"', '')),parseFloat( data.Longitude.replace('\"', ''))); 
+          var lat= parseFloat(data.Latitude.replace('\"', ''));
+          var lng =  parseFloat( data.Longitude.replace('\"', ''));
+          
+          var latlng = new google.maps.LatLng(lat,lng); 
           var contents = "<b>"+ data.Title +"</b><br>";
           contents += "Description: "+ data.Description + "<br>Contact: " + 
-          data.Contact + "<br>Responded: " + data.Response
+          data.Contact + "<br>Responded: " + data.Response + "<br><button type='button' data-toggle='modal' data-target='#myModal' class='btn btn-info'><i class='fa fa-bell'></i> Update Notification</button>";
 
           var wwindow = new google.maps.InfoWindow({
             content:contents});
 
           var marker = new google.maps.Marker({
             position: latlng,
+            data:{MarkID: count},
             map: map,
             icon:{ url: "http://maps.google.com/mapfiles/ms/icons/" + labelForMarker(data.Urgency)}
+            
           });
 
-          n
+          markers[count] = marker;
+          console.log(markers[count].MarkID);
+          keys = Object.keys(snapshot.val());
 
+          google.maps.event.addListener(marker, 'click', function() 
+           {
+           document.getElementById('userID').value = keys[marker.data.MarkID];
+           wwindow.open(map, marker);
+          });   
+
+            
+          
+           count++;
           markers.push(marker);
           //marker end
-
-          
-         
         });
         // forEach end
       });
       //locref end
+     
 
       //-----------------Initialize Map--------------------
       function initMap() {
