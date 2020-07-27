@@ -87,7 +87,7 @@ def getLocation():
 app = Flask(__name__)
 
 #------------------Index-------------------------
-@app.route('/', methods= ['GET','POST'])
+@app.route('/', methods= ['GET'])
 def index():
 	if UserUID:
 		req = UserUID 
@@ -101,36 +101,37 @@ def pushnotif():
 	ref = db.reference('/')
 	if request.method == 'POST':
 		#getting credentials
-		identity = UserUID
+		identity = request.form['userID']
 		title = request.form['title']
 		message = request.form['message']
 
 		#Send notification
 		r = ref.child('Approved').child(identity).get()
 
+		#Create Notification
 		header = {"Content-Type": "application/json; charset=utf-8",
-          		 "Authorization": "Basic ZDEwOWYxNDQtNTgxZS00MWU4LTg1ZDQtNDAwNTM3NjM5YTQw"}
+          }
 
 		payload = {"app_id": "5f3e9bd0-93f5-4551-9e07-37d102619eec",
-	           "included_segments": r['volunteers'],
+	           "include_player_ids": list(map(lambda x: x.replace("\"", ''),r['volunteers'])),
 	           "contents": {"en": message},
 		   		}
 	 
 		req = requests.post("https://onesignal.com/api/v1/notifications", headers=header, data=json.dumps(payload))
 
-
 		#store in firebase the update
-		rr = ref.child('Approved').child(identity)
-		rr.update({
-				'D'+str(datetime.now()).format("MM-dd-yyyy"):{
+		reff = db.reference('/')
+		rr = reff.child('Approved').child(identity)
+		rr.push({
+					
 						"Title": title,
 						"Content": message,
 						"Timestamp": str(datetime.now()).format("MM-dd-yyyy hh:mm:ss")
-						}
+						
 					
 			})
 
-		return render_template('index.html')
+		return redirect(url_for('index'))
 
 		
 #--------------Volunteering Service--------------
@@ -151,7 +152,7 @@ def deliveryService():
 		req = UserUID 
 		return render_template('deliveryService.html',req=req)
 	else:
-		return redirect(url_for('login'))
+		return redirect(url_for('createServicePOST'))
 	
 
 @app.route('/Deliveries', methods= ['POST'])
@@ -278,7 +279,7 @@ def finishedER():
 			for item in r.keys():
 				coord1 = tuple(getLocation())
 				coord2 = (r[item]['Latitude'],r[item]['Longitude'])
-				if distance(coord1, coord2).km  <= 2:
+				if distance(coord1, coord2).mi  <= 20:
 					users.append(r[item]['UserID'])
 
 			#Updating App reference to ledger
@@ -385,14 +386,13 @@ def getcontacts():
 			coord1 = tuple(getLocation())
 			coord2 = (r[item]['Latitude'],r[item]['Longitude'])
 			if distance(coord1, coord2).km  <= float(num):
-				users.append(r[item]['UserID'])
+				users.append(r[item]['UserID'].replace("\"", ''))
 
 		#Create Notification
-		header = {"Content-Type": "application/json; charset=utf-8",
-          "Authorization": "Basic ZDEwOWYxNDQtNTgxZS00MWU4LTg1ZDQtNDAwNTM3NjM5YTQw"}
-
+		header = {"Content-Type": "application/json; charset=utf-8"}
+          
 		payload = {"app_id": "5f3e9bd0-93f5-4551-9e07-37d102619eec",
-	           "included_segments": ["All"],
+	           "include_player_ids": users,
 	           "contents": {"en": message},
 		   		}
 	 
