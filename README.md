@@ -1,5 +1,5 @@
 ![](images/Logo.jpg)
-# Project ECU: Emergency Communication Unity Response for COVID-19
+# Project ECU: A Platform that brings the Community Together through Information
 
 The github repository for Call for Code submission and response intiative for the track COVID-19.
 
@@ -19,11 +19,11 @@ The github repository for Call for Code submission and response intiative for th
 
 ### What is the problem
 
-In reponse of the government to the COVID-19 pandemic, a community quarrantine is issued. As a result, a great impact on the community's essential services couldn't take the overwhelming number of people in need of this services. The blow of the quarrantine and the astounding number of cases could have been migitated if there was an early on contact tracer and service provider online to help guide people in need of this services. This is the matter we had fewer counter-measures for therefore the effects of uncooperative people are steadily increasing.  
+In reponse of the government to the COVID-19 pandemic, a community quarrantine is issued. As a result, a great impact on the community's essential services couldn't take the overwhelming number of people in need of this services. The blow of the quarrantine and the astounding number of cases could have been migitated if there was an early on contact tracer and service provider online to help guide people in need of this services that are focused on a localized level. This is the matter we had fewer counter-measures for therefore the effects of uncooperative people are steadily increasing.  
 
 ### How can Technology help?
 
-Contact tracing and Services can be provided through the right amount of information it needs to disclose. As such, the need of a platform to interact and secure information in a local manner is essential if we want the number of uncooperative people to migitate.
+Contact tracing and Essential Services can be provided through the right amount of information it needs to disclose. As such, the need of a platform to interact and secure information in a local manner is essential if we want the number of uncooperative people to migitate.
 
 To do so,a platform for local communities to further collaborate in community services and activities through providing the basic services via information sharing and tracking to ease up the burden of impacted local business and volunteer events that could be of help to the community. Collaboration through information and awareness is what we need to promote, so that those with the will and idea could promote them with ease with this platform.   
 
