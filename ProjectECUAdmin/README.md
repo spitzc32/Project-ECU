@@ -9,84 +9,22 @@ There are two roles it mainly plays: one is an announcer for important events or
 
 ![Pic1]()
 
-### DMS LITE
-The DMS LITE is the open source version of the cloud DMS. DMS LITE gives you simple network activity and data visuals.
+### Who can use Head ECU?
+This website is intended for the use of the head or someone in charge of the community that can deploy volunteers and frontliners that can help a person in need. The person who can use this website can be a head of an organization that sets out to help a particular area as long as it is nearby their vicinity. For establishments and partnered hospitals see the other folders in the source code and for individual users please use the application.
 
-The PaPa Duck is running a different Firmware than the regular ClusterDuck Protocol PaPa example.
+### Getting Started
+Before proceeding please do the prerequisites in [Project ECU](https://github.com/spitzc32/Project-ECU). Those are the dependencies needed in order for this web application to work. Also do take note that each page has its specified purpose please read their usage in each of their source code before using it. This web application runs on local host port 5000. Make sure that any other service that uses this port are turned off. 
 
-### Example of ClusterDuck Protocol Network
+#### Running the Application
+After doing the prerequisites in [Project ECU](https://github.com/spitzc32/Project-ECU), run the program in cmd with the following command. This instruction is for windows users only. 
 
-![](public/images/CDP-NETWORK-EXPLAIN.jpg)
+```running
+cd ProjectECUAdmin
 
-### Local ClusterDuck Protocol Network
+python app.py
+```
 
-![](public/images/PAPI-EXPLAIN-3.jpg)
-
-## Parts required
-
-- Raspberry Pi (3B+ preffered)
-   - for using a pi zero you need a different setup for node.js
-- Micro SD-Card 16GB or more
-  - Raspbian OS installed
-- Mouse and Keyboard
-- Monitor
-- Wired Ethernet Connection
-
-- Latest Copy of [ClusterDuck Protocol](https://github.com/Code-and-Response/ClusterDuck-Protocol)
-
-
-# Setup 
-## How To Install
-The PaPi and DMS LITE both need some setup before you can start seeing your data. To turn the Raspberry Pi into the PaPi, you will need to install multiple modules. 
-
-## Prepare Heltec or TTgo Board for PaPi
-1. goto [PAPI DMS Lite Examples](https://github.com/Code-and-Response/ClusterDuck-Protocol/tree/master/examples/PaPi-DMS-Lite-Examples "DMS PAPI Examples")
-2. Select which example you need based off of your particular install.
-3. Upload the .INO and you are set to move on 
-
-## Script Install 
-Both Raspbian images have Python 2 preinstalled but Raspbian Lite does not have python 3 preinstalled. But you will need to set you Pi to use python 3 as default.
-
-1. check your python version by running: python --version
-  *** if you don't see python 3 continue on to 2.**
-2. nano ~/.bashrc and add this to the very bottom alias python='/usr/bin/python3'
-
-now try this again python --version you should see your default is python 3 now.
-
-#### For Usb Serial 
-1. Make sure you connect the LoRa board to the Raspberry Pi.
-2. chmod u+x serial-install.sh will make the code excutable 
-3. ./Serial-install.sh will make the code run 
-4. sit back and kick up your feet because install will take a bit
-
-The DMS Lite will automatically open in a full sized window.
-
-#### After Install Run
-The next time you boot the Pi CD into the DMS-LITE folder and run the following script.
-1. chmod u+x run.sh
-2. now that you made the script executable run it by typing ./run.sh
-*** This will launch the scripts and bring you into kiosk mode. Which is full screen full resolution with no bars or anything. to exit out of this either reboot the pi or press fn f4 key to get back to desktop. ***
-
-In your Browser go to Localhost:3000 to see the dms-lite
-
-NOTE: *You need to run the two scripts in two separate terminals.*
-
-#### For Wifi Acces Point 
-1. chmod u+x Wifi-install.sh will make the code excutable 
-2. ./Wifi-install.sh will make the code run 
-3. sit back and kick up your feet because install will take a bit
-
-NOTE: *You need an Internet Connection to install the packages and the DMS LITE application. After the Raspberry Pi is turned into an Access Point it doesn't have WiFi capabilities anymore and you will need a LAN connection for final setup.*
-
-After you have installed the required dependencies you can the two scripts.
-
-`python3 Wifi_sqlwriter.py`
-
-`npm run start`
-
-In your Browser go to Localhost:3000 to see the dms-lite
-
-NOTE: *You need to run the two scripts in two separate terminals.*
+On the application, You will need to register as a Head Account. Please be notified that only a handful of users may sign in as the Head. If you are the head of an organization, see to it that there is only one centralized controller on your vicinity.
 
 
 
@@ -95,4 +33,4 @@ NOTE: *You need to run the two scripts in two separate terminals.*
 
 
 
-![logo](public/images/footer.png)
+
