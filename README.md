@@ -30,6 +30,10 @@ To do so,a platform for local communities to further collaborate in community se
 ### The Idea
 Providing the basic services via information sharing and tracking alongside with the call of opportunity can give people a virtual interaction they need to help in the times of crisis such as the COVID-19 pandemic. Users can assess situations and track ongoing events that needs a local level of cooperation on a live feed in order to fully track the situation at hand.
 
+![](images/ProjectECU.png)
+
+This is the basic flow of the interaction of the three entites. We send notifications and announcement through the Head and store them to keep the pawns updated while in turn, the users responsible then responds to the information sent by the Head. The knights then gets the information responded if it falls under their domain. For example, the medical history of a pawn within their vicinity falls under the domain of the Hospital knight, therefore it shall be given to them as per the pawn's permission.  
+
 ## Explanation Video 
 [![Watch the video]()]
 
