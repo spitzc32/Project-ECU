@@ -9,7 +9,8 @@ There are two roles it mainly plays: one is an announcer for important events or
 
 ![Pic1](images/Head.png)
 
-This is the representation of the 
+This is the basic flow of the Head on which, as mentioned before, mainly focuses on the Volunteering and Information Services. We can see the information being gathered here is being stored as an update like a ledger that keeps on track the ongoing events or requests if it is within the vicinity of the Head. The same goes for the Pawns. The Volunteer Pawns here are being deployed and used incase of an important matter where the other pawns direly need them.
+
 
 ### Who can use Head ECU?
 This website is intended for the use of the head or someone in charge of the community that can deploy volunteers and frontliners that can help a person in need. The person who can use this website can be a head of an organization that sets out to help a particular area as long as it is nearby their vicinity. For establishments and partnered hospitals see the other folders in the source code and for individual users please use the application.
