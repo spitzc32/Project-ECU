@@ -1,4 +1,4 @@
-![logo](images/HeadECU.png)
+![logo](images/HeadECU.jpg)
 
  
 ## About
