@@ -2,12 +2,14 @@
 
  
 ## About
-Head ECU is one of the roles in [Project ECU](https://github.com/spitzc32/Project-ECU) that mainly acts as a server in a distributed server system. It is mainly focused on the Information and Volunteer Services side of the whole Community. It regulates the necessary level of cooperation and information needed to be passed incase an emergency request or an event needing a volunteer occurs. You can see them in the Home Panel in the announmcent Page when you use lil' ECU or if any notifications you receive has an update or announcement attached to it.       
+Head ECU is one of the roles in [Project ECU](https://github.com/spitzc32/Project-ECU) that mainly acts as a server in a distributed server system. It is mainly focused on the Information and Volunteer Services side of the whole Community. It regulates the necessary level of cooperation and information needed to be passed incase an emergency request or an event needing a volunteer occurs. You can see them in the Home Panel in the announmcent Page when you use pawn ECU or if any notifications you receive has an update or announcement attached to it.       
 
 ## How it Works
-There are two roles it mainly plays: one is an announcer for important events or happenings and two, is a host to cooperation of our lil' ECU's. Using OneSignal API, it distributes the information locally obtained to update the lil' ECUs of either an announcement or an update to the happenings around the community. The boundaries are then decided by [Geopy](https://geopy.readthedocs.io/en/stable/), a Python client for locating which users are going to be notified inside the domain set of the Head.           
+There are two roles it mainly plays: one is an announcer for important events or happenings and two, is a host to cooperation of our pawns. Using OneSignal API, it distributes the information locally obtained to update the pawns of either an announcement or an update to the happenings around the community. The boundaries are then decided by [Geopy](https://geopy.readthedocs.io/en/stable/), a Python client for locating which pawns are going to be notified inside the domain set of the Head.           
 
-![Pic1]()
+![Pic1](images/Head.png)
+
+This is the representation of the 
 
 ### Who can use Head ECU?
 This website is intended for the use of the head or someone in charge of the community that can deploy volunteers and frontliners that can help a person in need. The person who can use this website can be a head of an organization that sets out to help a particular area as long as it is nearby their vicinity. For establishments and partnered hospitals see the other folders in the source code and for individual users please use the application.
