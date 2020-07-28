@@ -1,7 +1,7 @@
 ![](images/Logo.jpg)
 # Project ECU: A Platform that brings the Community Together through Information
 
-The github repository for Call for Code submission and response intiative for the track COVID-19.
+The github repository for Call for Code submission and response intiative for the track COVID-19. This repository contains 3 roles. Those roles are the Admin, The additional manpower services and the independent users, the basic necessities for a well-functioned community.  
 
 # Contents
 1. [Short Description](#Short-Description)
