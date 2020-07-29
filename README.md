@@ -41,7 +41,7 @@ This is the basic flow of the interaction of the three entites; namely, The Head
 [![Watch the video]()]
 
 ## Project Roadmap
-![](images/ProductRoadmap.jpg)
+![](images/Roadmap.png)
 
 ## The Architecture
 
