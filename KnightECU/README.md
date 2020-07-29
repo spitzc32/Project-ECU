@@ -13,7 +13,7 @@ The illustration above represents the basic flow of the Knight on which, as ment
 
 
 ### Who can use Knight ECU?
-This website is intended for the use of an instition that can are licensed as a practitioner or a hospital that has some available practitioners. The person who can use this website can be a head of an organization that sets out to help a particular area as long as it nis nearby their vicinity. For establishments and partnered hospitals see the other folders in the source code and for individual users please use the application.
+This website is intended for the use of an instition that can are licensed as a practitioner or a hospital that has some available practitioners. The person who can use this website can be a practitioner available in his that sets out to help a particular area as long as it nis nearby their vicinity. For Head or Admin see the other folders in the source code and for individual users please use the application.
 
 ### Getting Started
 Before proceeding please do the prerequisites in [Project ECU](https://github.com/spitzc32/Project-ECU). Those are the dependencies needed in order for this web application to work. Also do take note that each page has its specified purpose please read their usage in each of their source code before using it. This web application runs on local host port 5000. Make sure that any other service that uses this port are turned off. 
@@ -26,7 +26,7 @@ In app.py, there are numerous comments that states where they are using the API 
 ```
 #first of all please go to this directory of the file.
 
-cd ProjectECUAdmin
+cd KnightECU
 
 # Then add a copy of firebase-sdk.json in this directory.
 ```
@@ -53,7 +53,7 @@ var firebaseConfig = {}; // Paste firebaseConfig Credentials here
 After doing the prerequisites in [Project ECU](https://github.com/spitzc32/Project-ECU), run the program in cmd with the following command. This instruction is for windows users only. 
 
 ```running
-cd ProjectECUAdmin
+cd KnightECU 
 
 python app.py
 ```
