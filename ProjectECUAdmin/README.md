@@ -29,12 +29,11 @@ In app.py, there are numerous comments that states where they are using the API 
 cd ProjectECUAdmin
 
 # Then add a copy of firebase-sdk.json in this directory.
+```
 In **oneSignalAppID**, paste the credential named **firebaseConfig** in this comment
 ```
 oneSignalAppID= "" #paste oneSignalAppID here
 ```
-
-
 In **app.py**, paste the credential named **firebaseConfig** in this comment
 ```app.py
 firebaseConfig = {} # Paste firebaseConfig Credentials here
@@ -47,11 +46,8 @@ firebase_admin.initialize_app(cred,{
 ```
 In **index.html**, paste the credential named **firebaseConfig** in this comment
 ```
-
 var firebaseConfig = {}; // Paste firebaseConfig Credentials here
-
 ```
-
 In **index.html**, paste the credential named **googleAPIkey** in this comment
 ```
  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" // Paste firebaseConfig Credentials here
@@ -59,7 +55,6 @@ In **index.html**, paste the credential named **googleAPIkey** in this comment
 In **Volunteer.html**, paste the credential named **firebaseConfig** in this comment
 ```
 var firebaseConfig = {}; // Paste firebaseConfig Credentials here
-
 ```
 In **Volunteer.html**, paste the credential named **googleAPIkey** in this comment
 ```
