@@ -1,13 +1,13 @@
 """
 	created by:   spitzc32
-				  LowkeyProgrammer
+		      LowkeyProgrammer
 
 	Dependencies: Database Usage: firebase_admin
-				  				  pyrebase
-				  Notifications:  onesignal
-				  Geolocation:	  geocoder
-				  				  goepy
-				  Website:		  flask
+				      pyrebase
+		      Notifications:  onesignal
+		      Geolocation:    geocoder
+				      goepy
+		      Website:	      flask
 	
 	API's used:   Onesignal (https://documentation.onesignal.com/docs)
 				  GoQR 	  (http://goqr.me/api/)
@@ -57,24 +57,16 @@ from flask import render_template, request, Flask
 
 
 UserUID = "" #for Current User UID (Firebase Database)
+oneSignalAppID= "" #paste oneSignalAppID here
 #----------------Firebase Setup-------------------
-firebaseConfig = {
-	'apiKey': "AIzaSyB7ylmP4PvAByYA8--VbMSFonWvPa9ly_Q",
-	'authDomain': "community-87c7d.firebaseapp.com",
-	'databaseURL': "https://community-87c7d.firebaseio.com",
-	'projectId': "community-87c7d",
-	'storageBucket': "community-87c7d.appspot.com",
-	'messagingSenderId': "978165544305",
-	'appId': "1:978165544305:web:02736cf97efb7fb74632d0",
-	'measurementId': "G-6PE507NV6F"
-}
+firebaseConfig = {} # Paste firebaseConfig Credentials here
 firebase = pyrebase.initialize_app(firebaseConfig)
 auth = firebase.auth()
 
 cred = credentials.Certificate('firebase-sdk.json')
 
 firebase_admin.initialize_app(cred,{
-	'databaseURL': 'https://community-87c7d.firebaseio.com/'
+	'databaseURL': ''  # Paste firebaseConfig Credentials here
 	})
 
 #----------------Functionalities-----------------
@@ -112,7 +104,7 @@ def pushnotif():
 		header = {"Content-Type": "application/json; charset=utf-8",
           }
 
-		payload = {"app_id": "5f3e9bd0-93f5-4551-9e07-37d102619eec",
+		payload = {"app_id": oneSignalAppID,
 	           "include_player_ids": list(map(lambda x: x.replace("\"", ''),r['volunteers'])),
 	           "contents": {"en": message},
 		   		}
@@ -391,7 +383,7 @@ def getcontacts():
 		#Create Notification
 		header = {"Content-Type": "application/json; charset=utf-8"}
           
-		payload = {"app_id": "5f3e9bd0-93f5-4551-9e07-37d102619eec",
+		payload = {"app_id": oneSignalAppID,
 	           "include_player_ids": users,
 	           "contents": {"en": message},
 		   		}
