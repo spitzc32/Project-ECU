@@ -34,20 +34,16 @@ In **oneSignalAppID**, paste the credential named **firebaseConfig** in this com
 oneSignalAppID= "" #paste oneSignalAppID here
 ```
 
-```
+
 In **app.py**, paste the credential named **firebaseConfig** in this comment
 ```app.py
-
 firebaseConfig = {} # Paste firebaseConfig Credentials here
-
 ```
 In databaseURL, paste the credential named **dbURL**
 ```app.py
-
 firebase_admin.initialize_app(cred,{
 	'databaseURL': '' # Paste firebaseConfig Credentials here
 	}) 
-
 ```
 In **index.html**, paste the credential named **firebaseConfig** in this comment
 ```
@@ -58,22 +54,16 @@ var firebaseConfig = {}; // Paste firebaseConfig Credentials here
 
 In **index.html**, paste the credential named **googleAPIkey** in this comment
 ```
-
  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" // Paste firebaseConfig Credentials here
-
 ```
-
 In **Volunteer.html**, paste the credential named **firebaseConfig** in this comment
 ```
-
 var firebaseConfig = {}; // Paste firebaseConfig Credentials here
 
 ```
 In **Volunteer.html**, paste the credential named **googleAPIkey** in this comment
 ```
-
  src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" // Paste firebaseConfig Credentials here
-
 ```
 
 
