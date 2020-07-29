@@ -1,0 +1,203 @@
+<!-- 
+  created by:   spitzc32
+                LowkeyProgrammer
+
+  Dependencies: Database Usage: firebase_admin
+                                pyrebase
+                Notifications:  onesignal
+                Geolocation:    geocoder
+                                goepy
+                Website:        flask
+  
+  API's used:   Onesignal (https://documentation.onesignal.com/docs)
+                GoQR    (http://goqr.me/api/)
+                Google Maps Javascript API  (https://developers.google.com/maps/documentation/javascript/overview?utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_term=KW_%2Bmaps+%2Bjavascript+%2Bapi-ST_%2Bmaps+%2Bjavascript+%2Bapi&gclid=Cj0KCQjwpNr4BRDYARIsAADIx9xMmu8a7d4cbVCNi5zsnymDvffv9cqynxmEhySNYfr4cwLOT88ZbuoaApxGEALw_wcB&utm_content=text-ad-none-none-DEV_c-CRE_434204568468-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+%7E+Brand+%7C+BMM+%7C+Google+Maps+Javascript+API-KWID_43700053580897263-kwd-341556983684-userloc_9066820&utm_source=google&utm_medium=cpc)
+
+  Web Application Dashboard: Usage
+    - When a user requests for medicine in urgency, or
+      something in need urgently, this dashboard will 
+      provide our admin the access to help the individual 
+      in need to cater their needs.   
+-->
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <!--overview start-->
+        <div class="row">
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{{ url_for('index') }}">Home</a></li>
+              <li><i class="fa fa-laptop"></i>Dashboard</li>
+            </ol>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-12 col-md-3" onclick="location.href='{{ url_for('userDiagnosis') }}' ">
+            <div class="info-box red-bg">
+              <i class="fa fa-envelope-o"></i>
+              <div class="count">User</div>
+              <div class="title">Diagnosis</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-xl-12 col-md-3 " onclick="location.href='{{ url_for('contacts') }}' ">
+            <div class="info-box yellow-bg">
+              <i class="fa fa-bell"></i>
+              <div class="count">User</div>
+              <div class="title">Permission</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-xl-12 col-md-3" onclick="location.href='{{ url_for('MedHistory') }}' ">
+            <div class="info-box green-bg">
+              <i class="fa fa-calendar"></i>
+              <div class="count">Medical</div>
+              <div class="title">History</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+          <div class="col-xl-12 col-md-3"  onclick="location.href='{{ url_for('partneredHospital') }}' ">
+            <div class="info-box blue-bg">
+              <i class="fa fa-cubes"></i>
+              <div class="count">Register</div>
+              <div class="title">Hospital</div>
+            </div>
+            <!--/.info-box-->
+          </div>
+          <!--/.col-->
+
+        </div>
+        <!--/.row-->
+       
+        <!-- Barcode Start -->
+       
+        <div class="row">
+          <div class="col-6 col-md-4"></div>
+          <div class="col-6 col-md-4"> 
+            <div class="panel panel-info card text-center">
+              <div class="panel-heading">
+                <h2><i class="fa fa-qrcode"></i><strong>Scan QR Code</strong></h2>
+              </div>
+                <br>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?data={{lat}},{{lng}}&amp;size=300x300" alt="" title="" />
+                <h3><br><b>Scan Me when you enter our premises.</b></h3>
+                <h5>We need to inform you more than ever if you went to our place or not. This is a high risk area since most patients go in and out here. Please Cooperate for both our safety.</h5>
+                
+            </div>
+          </div>
+          <div class="col-6 col-md-4"></div>
+        </div>
+        
+        <!-- Map end -->
+
+      
+        </div><br><br>
+
+        
+
+      </section>
+     </section>
+      <div class="text-right">
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+   
+ 
+  
+  
+    <!-- custom script for this page-->
+    <script src="{{url_for('static', filename='js/sparkline-chart.js')}}"></script>
+    <script src="{{url_for('static', filename='js/easy-pie-chart.js')}}"></script>
+    <script src="{{url_for('static', filename='js/xcharts.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.autosize.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.placeholder.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/gdp-data.js')}}"></script>
+    <script src="{{url_for('static', filename='js/morris.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/sparklines.js')}}"></script>
+    <script src="{{url_for('static', filename='js/charts.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jquery.slimscroll.min.js')}}"></script>
+    <script>
+      //knob
+      $(function() {
+        $(".knob").knob({
+          'draw': function() {
+            $(this.i).val(this.cv + '%')
+          }
+        })
+      });
+
+      //carousel
+      $(document).ready(function() {
+        $("#owl-slider").owlCarousel({
+          navigation: true,
+          slideSpeed: 300,
+          paginationSpeed: 400,
+          singleItem: true
+
+        });
+      });
+
+      //custom select box
+
+      $(function() {
+        $('select.styled').customSelect();
+      });
+
+      
+    </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmNJv37NI7JcSVX85sPJb5B0uav92fXFQ&callback=initMap&libraries=drawing"
+        defer
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> 
+    <!--d3 -->
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+
+    <script >
+       $('#myModal').modal('show')
+    </script>
+    <script>
+     
+     
+      // map starts
+      var map;
+      var infoWindow;
+      var markers = [];
+      var keys = [];
+      var vertex = [];
+      var listOfPolygons = [];
+
+      var firebaseConfig = {
+        'apiKey': "AIzaSyB7ylmP4PvAByYA8--VbMSFonWvPa9ly_Q",
+        'authDomain': "community-87c7d.firebaseapp.com",
+        'databaseURL': "https://community-87c7d.firebaseio.com",
+        'projectId': "community-87c7d",
+        'storageBucket': "community-87c7d.appspot.com",
+        'messagingSenderId': "978165544305",
+        'appId': "1:978165544305:web:02736cf97efb7fb74632d0",
+        'measurementId': "G-6PE507NV6F"
+      }
+      firebase.initializeApp(firebaseConfig);
+
+     
+    </script>
+{% endblock %}

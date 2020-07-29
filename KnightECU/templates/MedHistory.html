@@ -1,0 +1,236 @@
+<!-- 
+  created by:   spitzc32
+                LowkeyProgrammer
+
+  Dependencies: Database Usage: firebase_admin
+                                pyrebase
+                Notifications:  onesignal
+                Geolocation:    geocoder
+                                goepy
+                Website:        flask
+  
+  API's used:   Onesignal (https://documentation.onesignal.com/docs)
+                GoQR    (http://goqr.me/api/)
+                Google Maps Javascript API  (https://developers.google.com/maps/documentation/javascript/overview?utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_term=KW_%2Bmaps+%2Bjavascript+%2Bapi-ST_%2Bmaps+%2Bjavascript+%2Bapi&gclid=Cj0KCQjwpNr4BRDYARIsAADIx9xMmu8a7d4cbVCNi5zsnymDvffv9cqynxmEhySNYfr4cwLOT88ZbuoaApxGEALw_wcB&utm_content=text-ad-none-none-DEV_c-CRE_434204568468-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+%7E+Brand+%7C+BMM+%7C+Google+Maps+Javascript+API-KWID_43700053580897263-kwd-341556983684-userloc_9066820&utm_source=google&utm_medium=cpc)
+
+  Web Application Emergency Requests: Usage
+    - Used to display the Medical History of Patients, write reviews and send a message to the user. 
+-->
+{% extends "base.html" %}
+{% block title %}Emergency Requests{% endblock %}
+{% block content %}
+<!--main content start-->
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-table"></i> Table</h3>
+            <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="{{url_for('index')}}">Home</a></li>
+              <li><i class="fa fa-table"></i>Table</li>
+              <li><i class="fa fa-th-list"></i>Medical History</li>
+            </ol>
+          </div>
+        </div>
+        <!-- page start-->
+        <div class="row">
+          <div class="col-lg-12">
+            <section class="panel">
+              <header class="panel-heading">
+                Medical History
+              </header>
+
+              <table class="table table-striped table-advance table-hover">
+                <tbody>
+                  <tr>
+                    <th><i class="icon_profile"></i> User</th>
+                    <th><i class="icon_tablet"></i> Medicine Name</th>
+                    <th><i class="icon_actions"></i> Actions</th>
+                  </tr>
+                  <form method="POST">
+                  <input type="hidden" id="user" name="user">
+                  <input type="hidden" id="Contact" name="Contact">
+                  <input type="hidden" id="Description" name="Description">
+                    {% if req %}
+                      {% for i in req.keys() %}
+                       <tr>
+                        <!-- Modal Review Start -->
+                        <div class="modal fade" id="ModalReview" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Review</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <label for="userID" class="col-form-label">UserID:</label>
+                              <div class="form-group">
+                                <input type="text" class="form-control" name="UserID" id="UserID">
+                              </div>
+                              <label for="date" class="col-form-label">Medicine Name:</label>
+                              <div class="form-group">
+                                <input type="text" class="form-control" name="MedicineName" id="MedicineName">
+                              </div>
+                              <div class="form-group">
+                                <label for="PracName" class="col-form-label">Practitioner's Name:</label>
+                                <input type="text" class="form-control" name="PracName" id="PracName">
+                              </div>
+                              <div class="form-group">
+                                <label for="DateReview" class="col-form-label">Date :</label>
+                                 <textarea class="form-control" id="message-text" name="DateReview" id="DateReview"></textarea>
+                              </div>
+                              <div class="form-group">
+                                <label for="ReviewPurpose" class="col-form-label">Review Purpose:</label>
+                                <input type="text" class="form-control" name="ReviewPurpose" id="ReviewPurpose">
+                              </div>
+                              <div class="form-group">
+                                <label for="Description" class="col-form-label">Description:</label>
+                                <input type="text" class="form-control" name="Description" id="Description">
+                              </div>
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <input type="submit" name="submit" value="Write">
+                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>  
+                      <!-- Modal Review End -->
+
+                      <!-- Modal View Start -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Level Of Urgency</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <label for="userID" class="col-form-label">UserID:</label>
+                              <div class="form-group">
+                                <input type="text" class="form-control" name="userID" id="userID">
+                              </div>
+                              <label for="date" class="col-form-label">Medicine Name:</label>
+                              <div class="form-group">
+                                <input type="text" class="form-control" name="date" id="date">
+                              </div>
+                              <div class="form-group">
+                                <label for="Fever" class="col-form-label">Allergies:</label>
+                                <input type="text" class="form-control" name="Allergies" id="Allergies">
+                              </div>
+                              <div class="form-group">
+                                <label for="DateConsumed" class="col-form-label">Date Consumed:</label>
+                                <input type="text" class="form-control" name="DateConsumed" id="DateConsumed">
+                              </div>
+                              <div class="form-group">
+                                <label for="Description" class="col-form-label">Description:</label>
+                                <input type="text" class="form-control" name="Description" id="Description">
+                              </div>
+                              <div class="form-group">
+                                <label for="SoreThroat" class="col-form-label">Number Of Intake:</label>
+                                <input type="text" class="form-control" name="NumberOfIntake" id="NumberOfIntake">
+                              </div>
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  <!-- Modal for View End -->
+                        {% for j in req[i]['MedicalHistory'].keys() %}
+                        <td class="nr"><span>{{i}}</span></td>
+                        <td class="nres">{{ j }}</td>
+                       
+                        <td>
+                          <div class="btn-group">
+
+                            <button type="button" data-toggle="modal" data-target="#ModalReview" class="btn btn-success" onclick="document.getElementById('user').value = $(this).closest('tr').find('.nr').text();document.getElementById('Contact').value = $(this).closest('tr').find('.nres').text();">Write Review</button> 
+                            
+                            <input type="submit" name="submit" class="btn btn-warning" value="Send" onclick="document.getElementById('user').value = $(this).closest('tr').find('.nr').text();document.getElementById('Contact').value = $(this).closest('tr').find('.nres').text();">
+
+                            <button type="button" name="butn"  data-toggle="modal" data-target="#myModal" class="btn btn-info" onclick="document.getElementById('userID').value = $(this).closest('tr').find('.nr').text();
+            document.getElementById('date').value = $(this).closest('tr').find('.nres').text();func()">View</button>
+                          </div>
+                        </td>
+                        {% endfor %}
+                     </form> 
+                      </tr>
+
+                      {% endfor %}
+                    {% endif %}
+
+                    
+                  
+                </tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+        <!-- page end-->
+      </section>
+    </section>
+    <script src="http://code.jquery.com/jquery.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase-database.js"></script> 
+    <script type="text/javascript">
+      function getTD(){
+         alert(this.cells[0].innerText);
+         
+      }
+
+      function func(){
+
+        var user = document.getElementById('userID').value;
+        var dateS = document.getElementById('date').value;
+        var url = 'Users/'+ user +'/MedicalHistory/' + dateS;
+        console.log(url);
+        var firebaseConfig = {
+          'apiKey': 'AIzaSyB7ylmP4PvAByYA8--VbMSFonWvPa9ly_Q',
+          'authDomain': 'community-87c7d.firebaseapp.com',
+          'databaseURL': 'https://community-87c7d.firebaseio.com',
+          'projectId': 'community-87c7d',
+          'storageBucket': 'community-87c7d.appspot.com',
+          'messagingSenderId': '978165544305',
+          'appId': '1:978165544305:web:02736cf97efb7fb74632d0',
+          'measurementId': 'G-6PE507NV6F'
+        }
+            firebase.initializeApp(firebaseConfig);
+          //---------------for Volunteers Section---------------
+          var eventsRef = firebase.database().ref(url);
+          eventsRef.on('value', function(snapshot) {
+            var data = snapshot.val();
+            console.log(data);
+            
+            document.getElementById('Allergies').value = data.Allergies;
+            document.getElementById('DateConsumed').value = data.DateConsumed;
+            document.getElementById('Description').value = data.Description;
+            document.getElementById('NumberOfIntake').value = data.NumberOfIntake;
+          });
+      }
+
+    </script>
+    <!--main content end-->
+    <div class="text-right">
+      <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+
+{% endblock %}
