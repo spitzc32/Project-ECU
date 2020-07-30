@@ -43,12 +43,6 @@ This is the basic flow of the interaction of the three entites; namely, The Head
 ## Project Roadmap
 ![](images/Roadmap.png)
 
-## The Architecture
-
-1. The user logs in using Google's OAuth Authentication
-2. Their location is connected via places API to other clusters of services offered in the neraby area
-3. 
-4. The user is guided by Watson AI if he/she is in need of help of accesing a service or if he/she has a question at hand.
 
 ## Long Description
 You can see more of our project details [here](Description.md)
@@ -83,7 +77,7 @@ pip install geopy
 ```
 
 ### Installing the App
-The mobile application is only available for Android with the minimum version of 4.4.4(API 19).  
+The mobile application is only available for Android with the minimum version of 4.4.4(API 19).   
 
 
 ## Live Demo
@@ -94,12 +88,10 @@ The mobile application is only available for Android with the minimum version of
 
 * [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/) - Chat bot that guides users in using the app.
 * [Firebase Database](https://firebase.google.com/) - No SQL Database used
-* [Facebook API](https://developers.facebook.com/products)- Facebook's Authentication and Messenger services used
 * [Google Places API](https://developers.google.com/places/web-service/intro) - For Nearby Places to assist user in locating emergency portals
 * [OneSignal API](https://app.onesignal.com/) - notifications
 * [Google Directions API](https://developers.google.com/maps/documentation/directions/start) - For Navigation and directions.
 * [QR Code API](http://goqr.me/) - For contact tracing QR codes.
-
 
 
 ## Authors
