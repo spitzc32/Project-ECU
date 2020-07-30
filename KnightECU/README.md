@@ -13,7 +13,7 @@ The illustration above represents the basic flow of the Knight on which, as ment
 
 
 ### Who can use Knight ECU?
-This website is intended for the use of an instition that can are licensed as a practitioner or a hospital that has some available practitioners. The person who can use this website can be a practitioner available in his that sets out to help a particular area as long as it nis nearby their vicinity. For Head or Admin see the other folders in the source code and for individual users please use the application.
+This website is intended for the use of an institution that can are licensed as a practitioner or a hospital that has some available practitioners. The person who can use this website can be a practitioner available in his that sets out to help a particular area as long as it nis nearby their vicinity. For Head or Admin see the other folders in the source code and for individual users please use the application.
 
 ### Getting Started
 Before proceeding please do the prerequisites in [Project ECU](https://github.com/spitzc32/Project-ECU). Those are the dependencies needed in order for this web application to work. Also do take note that each page has its specified purpose please read their usage in each of their source code before using it. This web application runs on local host port 5000. Make sure that any other service that uses this port are turned off. 
@@ -58,4 +58,4 @@ cd KnightECU
 python app.py
 ```
 
-On the application, You will need to register as a Head Account. Please be notified that only a handful of users may sign in as the Head. If you are the head of an organization, see to it that there is only one centralized controller on your vicinity.
+On the application, You will need to register as a Knight Account. Please be notified that only practitioners affiliated in a certain institution or Hospital may sign in as the Knight. 
