@@ -38,7 +38,7 @@ The project is based-off a distributed system that can support a community even 
 This is the basic flow of the interaction of the three entites; namely, The Head, The Knight, and The Pawn . We send notifications and announcement through the Head and store them to keep the pawns updated while in turn, the users responsible then responds to the information sent by the Head. The knights then gets the information responded if it falls under their domain. For example, the medical history of a pawn within their vicinity falls under the domain of the Hospital knight, therefore it shall be given to them as per the pawn's permission.  
 
 ## Explanation Video 
-[![Watch the video]()]
+[![Watch the video](https://clipchamp.com/watch/77zTBbcdD6X)]
 
 ## Project Roadmap
 ![](images/Roadmap.png)
