@@ -12,6 +12,7 @@ The github repository for Call for Code submission and response intiative for th
 1. [Getting Started](#Getting-Started)
 1. [Live Demo](#Live-Demo)
 1. [API's and Services used](#APIs-and-Services-used)
+1. [Credentials](#Credentials)
 1. [Authors](#Authors)`
 
 
@@ -83,6 +84,9 @@ The mobile application is only available for Android with the minimum version of
 ## Live Demo
 
 [![Watch the video]()]
+
+## Credentials
+please email jayragaile@gmail.com to get the credentials needed for this Project.
 
 ## API's and Services used
 
